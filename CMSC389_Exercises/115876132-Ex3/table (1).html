@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise 3 - Due: Oct. 7, by 11pm</title>
+    <style>
+       
+        table {
+            border-color: grey; 
+            border-collapse:collapse; 
+            border-style:ridge; 
+            border-width: thick; 
+            text-align: center;
+            
+        }
+
+         thead > th {
+            border-color: gray; 
+            border-width: thin; 
+            border-style: ridge;
+            border-spacing: 5px;
+            text-align: center; 
+        }
+       
+
+         table td:nth-child(3){
+            color: lightskyblue;
+            font-style: italic ;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        tr:last-child {
+            border-color: gray; 
+            border-width: thick; 
+            
+            border-style:ridge; 
+            text-align: center;
+           
+        } 
+
+        tr:last-child > td:last-of-type {
+            color: black;
+            border-style: ridge;
+            font-style: normal;
+            font-weight: normal;
+            text-decoration: none;
+        }
+    
+        
+    </style>
+</head>
+
+<body>
+
+
+    <table id="new_table" border="1px" >
+        <thead>
+            <th>Count </th>
+            <th>Value</th>
+            <th>Squared Value</th>
+        </thead>
+        <tfoot id="foot">
+            <tr>
+
+            </tr>
+        </tfoot>
+    
+    </table>
+
+    <script>
+        "use strict";
+        var answer=null;
+        var count=1; 
+        var value_sum = 0;
+        var squared_sum =0; 
+
+        while(answer!="done"){
+           
+            answer = prompt("Enter a number: ");
+
+            if(answer!="done" && answer!= null && answer!="") {
+                
+                if(isNaN(answer)){
+                    alert("Enter a valid number")
+                } else {
+                    answer = Math.round(answer);
+                    
+                    var table = document.getElementById("new_table");
+                    var row = table.insertRow(count);
+                    
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+
+                    cell1.innerHTML = count;
+                    cell2.innerHTML = answer;
+                    cell3.innerHTML = answer * answer; 
+
+                    value_sum +=answer;
+                    squared_sum+=(answer*answer); 
+                    count+=1; 
+
+                }
+            }
+
+        }
+
+        var table = document.getElementById("foot");
+        var row = table.insertRow(count);
+        
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+
+        cell1.innerHTML = "Sum";
+        cell2.innerHTML = value_sum;
+        cell3.innerHTML = squared_sum;
+
+    </script>
+</body>
+
+</html>

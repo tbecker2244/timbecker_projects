@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.testicon{
+    font-size: 3em;
+    
+}
+
+body > h1{
+    font-family: 'Gemunu Libre', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    color:#7395ae;
+    padding-top: .5em;
+    
+    
+    
+}
+
+body th {
+    font-family: 'Bebas Neue', cursive;
+    color:#557a95;
+    font-size: 2em;
+}
+
+body {
+    background-color: lightgray;
+    text-align: center;
+  
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #efe2ba;
+    
+    border-radius: 10px;
+    
+    
+}
+
+th, td {
+    border: 3px solid #efe2ba;
+    border-collapse: collapse;
+}
