@@ -1,7 +1,7 @@
-# cmsc436-finalProject
+# Timothy Becker Technical Projects
 
-Boyuan Tong, Group Number: 23, Project Name: Location-Based Tour Guide. 
+This repository contains two academic projects I have worked on in the past two years. 
 
-Kangming Luo, Group Number: 23, Project Name: Location-Based Tour Guide
+Project 1 - Location Based Tour Guide Android Application 
 
-Timothy Becker, Group Number: 23, Project Name: Location-Based Tour Guide
+Project 2 - Refrigerator Website and Android Application 
