@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Location Based Tour Guide</string>
+    <string name="tab_text_1">Google Maps</string>
+    <string name="tab_text_2">Author Login</string>
+    <string name="googlemaps">Launch Google Maps Tour</string>
+    <string name="addauthor">Add An Author</string>
+    <string name="welcome">Descriptions</string>
+    <string name="welcomemessage">Welcome to Location Based Tour Guide!</string>
+</resources>

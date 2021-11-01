@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "267296467394",
+    "firebase_url": "https://cmsc436-semesterproject-default-rtdb.firebaseio.com",
+    "project_id": "cmsc436-semesterproject",
+    "storage_bucket": "cmsc436-semesterproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267296467394:android:206533bf0ddfc5ce580e5b",
+        "android_client_info": {
+          "package_name": "com.example.semester_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267296467394-g1ttldi3gtp5q8luecgbep15ec637g9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.semester_project",
+            "certificate_hash": "f71bbbfe2b5767c8672ba99c6ffd9ca4344df9a5"
+          }
+        },
+        {
+          "client_id": "267296467394-al3c7ms5m7rgitqvqdmgbn6pruttcbks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC_-jwF7tmZzXVHKXV8SBDzOwIUdzW4Ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267296467394-al3c7ms5m7rgitqvqdmgbn6pruttcbks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
