@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TableFilter</title>
+    <style>
+        .card {
+            margin: 0 auto;
+            /* Added */
+            float: none;
+            /* Added */
+            margin-bottom: 10px;
+            /* Added */
+        }
+
+        img {
+            object-fit: cover;
+            width: 100px;
+            max-height: 275px;
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .dropdown-pull-left {
+            float: left !important;
+            right: 0;
+            left: auto;
+        }
+
+        .dropdown-pull-right {
+            float: right !important;
+            right: auto;
+            left: 0;
+        }
+
+        .col-xs-12 {
+            white-space: nowrap !important;
+            max-width: 100%;
+            overflow: auto;
+        }
+
+        .col-xs-3 {
+            float: none !important;
+            display: inline-block !important;
+        }
+
+        .col-xs-3 a {
+            height: 100px;
+            background: pink;
+            display: block;
+            margin-top: 10px;
+            padding: 10px
+        }
+
+        .btn {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand btn btn-secondary" href="tablet_home.html">
+                ⬅️ Back
+            </a>
+            <div class="page-header" style="position: relative;
+            margin: auto">
+                <h1>
+                    Recipe Suggestions
+                </h1>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome Mat!
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="py-4">
+
+        <div class="container" id="recipesDiv">
+            <div style="display: flex;">
+                <div class="dropdown indexDropdown">
+                    <button class="btn btn-default dropdown-toggle btn-secondary" type="button" id="dropdownMenu1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Sort by
+                        <span class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" onclick="sortRating()">Rating</a>
+                        <a class="dropdown-item" onclick="sortName()">Name</a>
+                    </div>
+                </div>
+                <div class="dropdown-pull-right" style="margin-left: auto; margin-right: 0;"> <a
+                        href="add_recipe.html"><button type="button" class="btn btn-primary btn-lg">Add New
+                            Recipe</button></a></div>
+                <br><br><br>
+
+            </div>
+
+
+            <!-- <div class="card mb-3 text-center align-middle dessert" id="cake">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="https://www.cookingclassy.com/wp-content/uploads/2019/10/chocolate-cake-3.jpg"
+                            class="card-img" alt="dish">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Triple Chocolate Cake</h5>
+                            <p class="card-text">This is a rich and moist chocolate cake. It only takes a few minutes to
+                                prepare the batter. Frost with your favorite chocolate frosting.</p>
+
+                            <p>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            </p>
+                            <a href="cake_recipe.html"><button type="button" class="btn btn-primary btn-lg">View
+                                    Recipe</button></a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->
+
+        </div>
+    </main>
+
+</body>
+<script>
+    var recipes = [
+        {
+            "name": "Macaroni and Cheese",
+            "description": "This baked mac and cheese is a family favorite recipe, loved by both children and adults. It uses a combination of cheeses, layered in the dish as well as melted into a rich and creamy cheese sauce, for the ultimate in cheesy deliciousness! Perfect for a comforting dinner or as a holiday side dish!",
+            "rating": 3,
+            "img": "https://storage.googleapis.com/gen-atmedia/3/2015/09/e73344b9cdfdedc315f380c25d0c9e89cdad696f.jpeg",
+            "ingredients": [
+                "1 lb. dried elbow pasta",
+                "1/2 cup unsalted butter",
+                "1/2 cup all purpose flour",
+                "1 1/2 cups whole milk",
+                "2 1/2 cups half and half",
+                "4 cups grated medium sharp cheddar cheese divided (measured after grating)",
+                "2 cups grated Gruyere cheesedivided (measured after grating)",
+                "1/2 Tbsp. salt",
+                "1/2 tsp. black pepper",
+                "1/4 tsp. paprika"
+            ],
+            "instructions": [
+                "Preheat oven to 325 degrees F and grease a 3 qt baking dish (9x13)",
+                "Set aside.",
+                "Bring a large pot of salted water to a boil. When boiling, add dried pasta and cook 1 minute less than the package directs for al dente. Drain and drizzle with a little bit of olive oil to keep from sticking.",
+                "While water is coming up to a boil, grate cheeses and toss together to mix, then divide into three piles. Approximately 3 cups for the sauce, 1 1/2 cups for the inner layer, and 1 1/2 cups for the topping.",
+                "Melt butter in a large saucepan over MED heat. Sprinkle in flour and whisk to combine. Mixture will look like very wet sand. Cook for approximately 1 minute, whisking often. Slowly pour in about 2 cups or so of the milk/half and half, while whisking constantly, until smooth. Slowly pour in the remaining milk/half and half, while whisking constantly, until combined and smooth.",
+                "Continue to heat over MED heat, whisking very often, until thickened to a very thick consistency. It should almost be the consistency of a semi thinned out condensed soup.",
+                "Remove from the heat and stir in spices and 1 1/2 cups of the cheeses, stirring to melt and combine. Stir in another 1 1/2 cups of cheese, and stir until completely melted and smooth.",
+                "In a large mixing bowl, combine drained pasta with cheese sauce, stirring to combine fully. Pour half of the pasta mixture into the prepared baking dish. Top with 1 1/2 cups of grated cheeses, then top that with the remaining pasta mixture.",
+                "Sprinkle the top with the last 1 1/2 cups of cheese and bake for 15 minutes, until cheesy is bubbly and lightly golden brown."
+            ]
+        }
+    ];
+    // console.log(sessionStorage.getItem("recipes"))
+    if (sessionStorage.getItem("recipes") != undefined) {
+        recipes = JSON.parse(sessionStorage.getItem("recipes"));
+    } else {
+        sessionStorage.setItem("recipes", JSON.stringify(recipes));
+    }
+    recipes.forEach(addRecipe);
+    function addRecipe(item, index) {
+        ratings = ''
+        for (var i = 0; i < 5; i++) {
+            if (i < item.rating) {
+                ratings += '<span class="fa fa-star checked"></span>'
+            } else {
+                ratings += '<span class="fa fa-star "></span>'
+            }
+        }
+        newRecipe = '<a style="color: inherit; text-decoration: none;" href="get_recipe.html?index=' + index + '"><div class="card mb-3 text-center align-middle"> <div class="row no-gutters"> <div class="col-md-4"> <img src="' + item.img + '" class="card-img" alt="dish"> </div> <div class="col-md-8"> <div class="card-body"> <h5 class="card-title">' + item.name + '</h5> <p class="card-text">' + item.description + '</p> <p> ' + ratings + ' </p> </div> </div> </div> </div> </a>';
+        var div = document.getElementById('recipesDiv');
+        div.innerHTML += newRecipe;
+    }
+    function sort_by_key(array, key) {
+        return array.sort(function (a, b) {
+            var x = a[key]; var y = b[key];
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        });
+    }
+    function sortRating() {
+        recipes.sort(function (a, b) {
+            return b.rating - a.rating;
+        }
+        );
+        sessionStorage.setItem("recipes", JSON.stringify(recipes));
+        location.reload();
+    }
+
+    function sortName() {
+        recipes = sort_by_key(recipes, 'name');
+        sessionStorage.setItem("recipes", JSON.stringify(recipes));
+        location.reload();
+    }
+</script>
+
+
+</html>

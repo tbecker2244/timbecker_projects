@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>SmartFridge</title>
+    <style>
+        
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        
+        button {
+          background-color: #4CAF50;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+        
+        button:hover {
+          opacity: 0.8;
+        }
+
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+        }
+        
+        img.avatar {
+          width: 13%;
+          border-radius: 20%;
+        }
+        
+        .container {
+          padding: 16px;
+        }
+
+
+        </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Welcome to SmartFridge
+            </a>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        <div class="imgcontainer">
+            <img src="pro-pic.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <form action= "tablet_home.html">
+              <label for="uname"><b>Username</b></label>
+              <input type="text" placeholder="Enter Username" name="uname" required>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required> 
+              <button type="submit" style="background-color:#28a745">Login</button>
+              <label>
+            </form>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            <span class="psw" style = "float: right"><a href="#">Forgot password?</a></span>
+
+        </div>    
+
+    </main>
+
+    <script src="TableFilter.min.js" defer></script>
+</body>
+</html>

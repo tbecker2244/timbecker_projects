@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
+        integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>TableFilter</title>
+    <style>
+        .card {
+            margin: 0 auto;
+            /* Added */
+            float: none;
+            /* Added */
+            margin-bottom: 10px;
+            /* Added */
+        }
+
+        .btn {
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        label {
+            font-size: xx-large;
+        }
+
+        input,
+        textarea {
+            font-size: 20px !important;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand btn" href="recipes.html">
+                ⬅️ Back to Recipes
+            </a>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Welcome Mat!
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="py-4">
+
+        <div class="container">
+
+            <div class="row no-gutters">
+                <div class="col-md-8">
+                    <form id="myForm">
+                        <div class="form-group">
+                            <label for="dishName">Dish Name</label>
+                            <input class="form-control" id="dishName" placeholder="Pizza Bagels" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dishImg">Link to an Image of the Dish</label>
+                            <textarea class="form-control" id="dishImg" rows="1"
+                                placeholder="https://en.wikipedia.org/wiki/Pizza_bagel#/media/File:Flickr_-_cyclonebill_-_Pizza_med_rejer.jpg"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="dishDescription">Description</label>
+                            <textarea class="form-control" id="dishDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="rating">Rating</label>
+                            <input type="number" id="rating" min="0" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dishIngredients">Ingredients (Seperate each ingredient by a new
+                                line)</label>
+                            <textarea class="form-control" id="dishIngredients" rows="10" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="dishInstructions">Instructions (Seperate each ingredient by a new
+                                line)</label>
+                            <textarea class="form-control" id="dishInstructions" rows="10" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Add This Recipe</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+    <script>
+        function processForm(e) {
+            if (e.preventDefault) e.preventDefault();
+            name = document.getElementById("dishName").value;
+            img = document.getElementById("dishImg").value;
+            description = document.getElementById("dishDescription").value;
+            ingredients = document.getElementById("dishIngredients").value;
+            instructions = document.getElementById("dishInstructions").value;
+            rating = document.getElementById("rating").value;
+            var new_recipes =
+            {
+                "name": name,
+                "description": description,
+                "rating": rating,
+                "img": img,
+                "ingredients": ingredients.split("\n"),
+                "instructions": instructions.split("\n")
+            }
+            var recipes = JSON.parse(sessionStorage.getItem("recipes"));
+            // console.log(recipes);
+            recipes.push(new_recipes);
+            // console.log(recipes);
+            sessionStorage.setItem("recipes", JSON.stringify(recipes));
+            recipes = JSON.parse(sessionStorage.getItem("recipes"));
+            // console.log(recipes);
+            // alert("test")
+            location.href = "recipes.html";
+            return false;
+        }
+
+        var form = document.getElementById('myForm');
+        if (form.attachEvent) {
+            form.attachEvent("submit", processForm);
+        } else {
+            form.addEventListener("submit", processForm);
+        }
+    </script>
+</body>
+
+</html>
